@@ -21,7 +21,8 @@
         "idle_inhibitor",
         "power-profiles-daemon",
         "battery",
-        "clock"
+        "clock",
+        "custom/power"
     ],
     "keyboard-state": {
         "numlock": true,
@@ -141,17 +142,10 @@
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
-    "custom/power": {
-        "format" : "⏻ ",
-		"tooltip": false,
-		"menu": "on-click",
-		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-		"menu-actions": {
-			"shutdown": "shutdown",
-			"reboot": "reboot",
-			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
-		}
+    "custom/power":{
+        "format": "⏻",
+        "on-click": "nwg-bar -t power-exit.json",
+        "on-click-right": "killall nwg-bar"
     },
     "custom/workspacelabel": {
         "format" : "Workspace",
